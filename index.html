@@ -405,12 +405,15 @@
         </div>
         <div class="subscribe-container">
           <p class="subscribe-title">Subscribe</p>
-          <input class="subscribe-input" type="email" name="subscribe-email" placeholder="E-mail" />
-          <button class="subscribe-button" type="submit">
-            Subscribe<svg width="24" height="24" class="footer-social-logo">
-              <use href="./images/icons.svg#icon-send"></use>
-            </svg>
-          </button>
+          <form class="subscribe-block">
+            <label class="subscribe"></label>
+            <input class="subscribe-input" type="email" name="subscribe-email" placeholder="E-mail" />
+            <button class="subscribe-button" type="submit">
+              Subscribe<svg width="24" height="24" class="footer-social-logo">
+                <use href="./images/icons.svg#icon-send"></use>
+              </svg>
+            </button>
+          </form>
         </div>
       </div>
     </footer>
@@ -474,7 +477,7 @@
               value="true"
             />
             <label class="modal-agreement" for="user-privacy">
-              <span class="privacy-policy-chk">
+              <span class="privacy-policy-block">
                 <svg class="privacy-policy-icon" width="10" height="8">
                   <use href="./images/icons.svg#icon-checkbox"></use>
                 </svg>
