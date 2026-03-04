@@ -767,12 +767,14 @@ button {
 }
 
 .privacy-policy-checkbox:focus + .modal-agreement > .privacy-policy-block {
-  outline: 2px solid #111111;
+  outline: 2px solid #4d5ae5;
 }
 
 .privacy-policy-link {
   color: #4d5ae5;
   text-decoration: underline;
+  line-height: 1.33333;
+  text-decoration-skip-ink: none;
 }
 
 .send-button {
