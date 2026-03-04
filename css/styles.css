@@ -220,7 +220,7 @@ button {
   text-transform: capitalize;
 }
 
-.container .visually-hidden {
+.visually-hidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -531,7 +531,8 @@ button {
   color: #ffffff;
 }
 
-.subscribe-input:hover .subscribe-input:focus {
+.subscribe-input:focus {
+  outline: none;
   border-color: #31d0aa;
 }
 
@@ -543,6 +544,7 @@ button {
   gap: 16px;
   padding: 8px 24px;
   height: 40px;
+  cursor: pointer;
   font-weight: 500;
   letter-spacing: 0.04em;
   color: #ffffff;
@@ -561,17 +563,26 @@ button {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 999;
   width: 100%;
   height: 100%;
   background-color: rgba(46, 47, 66, 0.4);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-overlay.is-open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 408px;
   transform: translate(-50%, -50%);
+  width: 408px;
   border-radius: 4px;
   padding: 72px 24px 24px;
   box-shadow:
@@ -579,6 +590,11 @@ button {
     0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
   background-color: #fcfcfc;
+}
+
+.icon-close {
+  fill: #2e2f42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .close-button {
@@ -596,6 +612,17 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   background-color: #e7e9fc;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.close-button:hover,
+.close-button:focus {
+  background-color: #404bbf;
+}
+
+.close-button:hover .icon-close,
+.close-button:focus .icon-close {
+  fill: #ffffff;
 }
 
 .contact-form-title {
@@ -622,12 +649,22 @@ button {
   position: relative;
 }
 
+.modal-input:focus + .modal-input-icon {
+  fill: #4d5ae5;
+}
+
 .modal-input {
   height: 40px;
   width: 100%;
   padding-left: 38px;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: #4d5ae5;
 }
 
 .modal-input-icon {
@@ -635,6 +672,7 @@ button {
   top: 50%;
   left: 16px;
   transform: translateY(-50%);
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contacts-form-group {
@@ -645,21 +683,71 @@ button {
   display: block;
   width: 100%;
   height: 120px;
-  margin-bottom: 16px;
+  padding: 8px 16px;
 
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.16667;
+  letter-spacing: 0.04em;
   border: 1px solid rgba(46, 47, 66, 0.4);
   border-radius: 4px;
   resize: none;
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.comment-text-area:focus {
+  outline: none;
+  border-color: #4d5ae5;
+}
+
+.comment-text-area::placeholder {
+  color: rgba(46, 47, 66, 0.4);
+}
+
+.comment-group {
+  margin-bottom: 16px;
+}
+
+.privacy-policy-area {
+  margin-bottom: 24px;
 }
 
 .modal-agreement {
   display: flex;
   align-items: center;
-  margin-bottom: 24px;
   font-weight: 400;
   font-size: 12px;
   line-height: 1.16667;
   letter-spacing: 0.04em;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.privacy-policy-chk {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border-radius: 2px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  cursor: pointer;
+  fill: transparent;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.privacy-policy-checkbox:checked + .modal-agreement > .privacy-policy-chk {
+  background-color: #404bbf;
+  fill: #f4f4fd;
+}
+
+.privacy-policy-checkbox:focus + .modal-agreement > .privacy-policy-chk {
+  outline: 2px solid #111111;
+}
+
+.privacy-policy-link {
+  color: #4d5ae5;
+  text-decoration: underline;
 }
 
 .send-button {
@@ -673,4 +761,10 @@ button {
   background-color: #4d5ae5;
   border-radius: 4px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.send-button:hover,
+.send-button:focus {
+  background-color: #404bbf;
 }
